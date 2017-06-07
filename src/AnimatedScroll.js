@@ -60,9 +60,6 @@ export default class AnimatedScroll {
         return new Promise((resolve) => {
             validatePositiveNumber(offset, direction);
 
-            if (duration !== false) {
-                return validatePositiveNumber(duration, 'duration');
-            }
             if (typeof easing !== 'function') {
                 throw new Error('easing should be a function');
             }
@@ -118,6 +115,8 @@ export default class AnimatedScroll {
                     resolve(this.element[elementProperty]);
                 }
             };
+
+            animate();
         });
     }
 
